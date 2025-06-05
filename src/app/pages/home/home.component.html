@@ -1,0 +1,56 @@
+<!-- Sección Principal -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Bienvenidos a la Fundación "Discapacitando el Estigma"</h2>
+      <p class="lead text-muted">Conoce más sobre nuestra misión y trabajo</p>
+    </div>
+
+    <!-- Botón toggle -->
+    <div class="d-flex justify-content-center mb-4">
+      <button 
+        class="btn btn-primary btn-lg"
+        type="button"
+        (click)="showDescription = !showDescription"
+        [attr.aria-expanded]="showDescription"
+        aria-controls="descriptionCollapse"
+      >
+        {{ showDescription ? 'Ocultar Información' : 'Mostrar Información' }}
+      </button>
+    </div>
+
+    <!-- Descripción colapsable -->
+    <div id="descriptionCollapse" class="collapse" [class.show]="showDescription">
+      <div class="card card-body bg-light border-0 shadow-sm p-4 rounded">
+        <h5 class="mb-3">Sobre la Fundación "Discapacitando el Estigma"</h5>
+        <p class="text-muted">
+          La Fundación "Discapacitando el Estigma" es una organización comprometida con la educación, sensibilización y promoción de los derechos de las personas con discapacidad intelectual. Nuestro objetivo principal es combatir los prejuicios y estereotipos que rodean la discapacidad, fomentando una sociedad más inclusiva e informada. A través de campañas de concientización, talleres educativos y programas comunitarios, trabajamos para transformar miradas y construir puentes de comprensión y respeto hacia las personas con discapacidad intelectual.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Publicaciones de Eventos -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h3 class="text-center fw-bold mb-4">Publicaciones de Eventos</h3>
+    <div class="row g-4">
+
+      <!-- Tarjetas de eventos -->
+      <div class="col-md-4" *ngFor="let event of events">
+        <a [routerLink]="event.link" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-card" style="cursor: pointer;">
+            <img [src]="event.image" class="card-img-top" alt="{{event.title}}" style="height: 200px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary">{{event.title}}</h5>
+              <p class="card-text text-muted flex-grow-1">{{event.description}}</p>
+              <button class="btn btn-outline-primary btn-sm mt-auto">Ver más</button>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

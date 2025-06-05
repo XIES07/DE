@@ -1,0 +1,29 @@
+<section class="py-5 bg-white">
+  <div class="container">
+    <h3 class="text-center fw-bold mb-4">Comentarios e Historias de Usuarios</h3>
+    <p class="text-center text-muted mb-4">Lo que dicen quienes forman parte de nuestro camino</p>
+
+    <div class="row g-4">
+
+      <!-- Tarjeta de testimonio -->
+      <div class="col-md-4" *ngFor="let testimonial of testimonials">
+        <div class="card h-100 shadow-sm border-0 hover-card p-3">
+          <div class="d-flex align-items-start mb-3">
+            <img [src]="testimonial.avatar" alt="Avatar de {{ testimonial.name }}" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+            <div>
+              <h6 class="mb-0">{{ testimonial.name }}</h6>
+              <small class="text-muted">{{ testimonial.role }}</small>
+            </div>
+          </div>
+
+          <p class="card-text text-muted small">{{ testimonial.comment }}</p>
+
+          <div class="mt-auto pt-2 text-end">
+            <button class="btn btn-outline-secondary btn-sm">Leer más</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

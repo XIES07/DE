@@ -1,0 +1,82 @@
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">Búsqueda Avanzada</h2>
+    <p class="text-muted">Encuentra información relevante sobre inclusión y discapacidad intelectual.</p>
+  </div>
+
+  <div class="card shadow-sm p-4 mx-auto" style="max-width: 700px;">
+    <form (ngSubmit)="performSearch()" novalidate>
+      <div class="mb-3">
+        <label for="query" class="form-label">Término de búsqueda</label>
+        <input
+          type="text"
+          id="query"
+          [(ngModel)]="searchQuery"
+          name="query"
+          class="form-control"
+          placeholder="Ejemplo: estrategias de enseñanza"
+          required
+        />
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label for="topic" class="form-label">Tema</label>
+          <select
+            id="topic"
+            [(ngModel)]="filters.topic"
+            name="topic"
+            class="form-select"
+          >
+            <option value="">Selecciona un tema</option>
+            <option *ngFor="let topic of availableTopics" [value]="topic">
+              {{ topic }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="region" class="form-label">Región</label>
+          <select
+            id="region"
+            [(ngModel)]="filters.region"
+            name="region"
+            class="form-select"
+          >
+            <option *ngFor="let region of availableRegions" [value]="region">
+              {{ region }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="language" class="form-label">Idioma</label>
+          <select
+            id="language"
+            [(ngModel)]="filters.language"
+            name="language"
+            class="form-select"
+          >
+            <option value="">Cualquiera</option>
+            <option *ngFor="let lang of availableLanguages" [value]="lang">
+              {{ lang === 'es' ? 'Español' : 'Inglés' }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-4 d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">
+          Buscar en Google
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Opcional: Mostrar URL generada -->
+  
+  <div class="mt-3 text-center" *ngIf="googleSearchUrl">
+    <small>Buscar en: <a [href]="googleSearchUrl" target="_blank">{{ googleSearchUrl }}</a></small>
+  </div>
+ 
+</div>

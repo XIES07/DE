@@ -1,0 +1,32 @@
+.hover-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-text {
+  min-height: 80px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-outline-secondary {
+  color: #2e722ef1;
+  border-color: #2e722ef1;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #2e722ef1;
+  color: white;
+}
